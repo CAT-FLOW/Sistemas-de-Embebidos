@@ -1,0 +1,60 @@
+Control de un Ventilador con Sensor de Temperatura y Notificaciones vía WiFi
+
+Descripción:
+
+Este proyecto ajusta la velocidad de un ventilador de 12V en función de la temperatura ambiente medida por un sensor. Además, incorpora conectividad WiFi para enviar notificaciones cuando la temperatura supere o disminuya un umbral definido.
+
+Materiales:
+
+ESP32 (para control y conectividad WiFi)
+
+Sensor de Temperatura (DHT22 o LM35)
+
+MOSFET IRF540P (para controlar el ventilador)
+
+Ventilador de 12V
+
+Fuente de alimentación 12V
+
+Resistencias y cables de conexión
+
+
+Funcionamiento:
+
+1. Lectura de temperatura: El ESP32 obtiene la temperatura desde el sensor DHT22 o LM35.
+
+
+2. Control de velocidad:
+
+Si la temperatura sube, el ESP32 incrementa el duty cycle del PWM para acelerar el ventilador.
+
+Si la temperatura baja, reduce la velocidad del ventilador.
+
+
+
+3. Envío de alertas WiFi:
+
+Si la temperatura supera un umbral definido (ej. 55°C), se envía un mensaje de alerta a un bot de WhatsApp o Telegram.
+
+Cuando la temperatura baja nuevamente, también se envía una notificación.
+
+
+
+
+Implementación de WiFi y Notificaciones:
+
+El ESP32 se conecta a la red WiFi local.
+
+Para WhatsApp, se puede usar la API de Twilio o WhatsApp Business con un webhook.
+
+Para Telegram, se puede emplear el Bot API de Telegram, enviando mensajes automáticamente desde el ESP32.
+
+
+Aplicaciones:
+
+Control automático de ventilación en invernaderos, servidores o espacios cerrados.
+
+Monitoreo remoto de temperatura en habitaciones o laboratorios.
+
+Integración con domótica para sistemas de enfriamiento inteligentes.
+
